@@ -1,11 +1,32 @@
+<form method="post">
+
+    <table>
+        <tr>
+            <td><input type="submit" value="cadastrar" name="tela"></td>
+            <td><input type="submit" value="alterar" name="tela"></td>
+            <td><input type="submit" value="excluir" name="tela"></td>
+        </tr>
+    </table>
+
+    <hr/>
+</form>
+
+
 <?php
-if (!isset($_SESSION['usuario'])) {
-    echo 'Falha no sistema<br>';
-    echo 'Você precisa se autenticar!<br>';
-    echo '<a href="index.php">Voltar</a>';
-    exit();
+if (isset($_POST['tela'])) {
+    $_SESSION['tela'] = $_POST['tela'];
+    if ($_SESSION['tela'] == 'cadastrar') {
+        include 'cadastrar.php';
+    }
+    if ($_SESSION['tela'] == 'alterar') {
+        include 'alterar.php';
+    }
+    if ($_SESSION['tela'] == 'excluir') {
+        include 'excluir.php';
+    }
 }
+
+
+
+
 ?>
-<a href="?desconectar=true">Desconectar</a>
-<hr>
-<h1>Olá <?=$_SESSION['usuario']?></h1>
