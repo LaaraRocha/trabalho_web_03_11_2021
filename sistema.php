@@ -1,5 +1,4 @@
 <form method="post">
-
     <table>
         <tr>
             <td><input type="submit" value="cadastrar" name="tela"></td>
